@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "QUAL Helper",
+  "version": "2.8.2",
+  "description": "Auto-start on CPC page; inject goods properties row; open all Qualification links via modifier key.",
+  "permissions": ["storage", "tabs", "tabGroups", "clipboardWrite", "activeTab"], 
+  "host_permissions": ["https://outsourcing.logisticsmngmt.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "QUAL Helper"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://outsourcing.logisticsmngmt.com/*"],
+      "js": ["content_main.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
